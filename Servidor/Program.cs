@@ -5,11 +5,15 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.IO;
 
 namespace servidorAsincrono
 {
+
     public class AsynchronousSocketListener
     {
+        public static Dictionary<string, string> archivos = new Dictionary<string, string>();
 
         public static int TAM = 1024;
         public static int ceros;
@@ -21,6 +25,13 @@ namespace servidorAsincrono
 
         public static async Task StartListening()
         {
+            for (int i = 1; i <= 10; i++)
+            {
+                string archivo = "archivo" + i + ".txt";
+                string contenidoArc = "Archivo" + i;
+                File.WriteAllText(archivo, contenidoArc);
+                archivos.Add(archivo,contenidoArc);
+            }
             // Data buffer for incoming data.  
             byte[] bytes = new Byte[TAM];
 
