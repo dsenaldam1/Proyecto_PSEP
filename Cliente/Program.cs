@@ -5,6 +5,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Security.Cryptography;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace clientesincrono {
     public class SynchronousSocketClient {
@@ -13,9 +16,17 @@ namespace clientesincrono {
 
             RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider(2048); //creamos el RSA en el cliente
             RSAParameters clavePublica = RSAalg.ExportParameters(false); //Sacamos la clave publica para enviarsela al servidor
-
+            byte[] rsabytes;
+            using (MemoryStream ms = new MemoryStream())
+                {
+                    DataContractSerializer serializer = new DataContractSerializer(typeof(RSAParameters));
+                    serializer.WriteObject(ms, clavePublica);
+                    rsabytes= ms.ToArray();
+                    
+                    // ahora puedes enviar los bytes a través del socket
+                }
             // Data buffer for incoming data.  
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[4096];
             
             // Connect to a remote device.  
             try {
@@ -27,7 +38,7 @@ namespace clientesincrono {
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
 
                 // Create a TCP/IP  socket.
-               while(true) { 
+               
                 Socket sender = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                 // Connect the socket to the remote endpoint. Catch any errors.  
@@ -41,7 +52,7 @@ namespace clientesincrono {
 
                     
                     // Send the data through the socket.  
-                    int bytesSent = sender.Send(clavePublica); // Enviamos la clave publica al servidor
+                    int bytesSent = sender.Send(rsabytes); // Enviamos la clave publica al servidor
 
                     // Receive the response from the remote device.  
                     int bytesRec = sender.Receive(bytes);
@@ -58,7 +69,7 @@ namespace clientesincrono {
                 } catch (Exception e) {
                     Console.WriteLine("Unexpected exception : {0}", e.ToString());
                 }
-               }
+               
 
             } catch (Exception e) {
                 Console.WriteLine(e.ToString());

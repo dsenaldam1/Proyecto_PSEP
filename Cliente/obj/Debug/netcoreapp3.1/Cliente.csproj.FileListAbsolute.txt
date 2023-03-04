@@ -12,3 +12,17 @@ C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\C
 C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.dll
 C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.pdb
 C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.genruntimeconfig.cache
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.exe
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.deps.json
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.runtimeconfig.json
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.runtimeconfig.dev.json
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.dll
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.pdb
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.csproj.AssemblyReference.cache
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.AssemblyInfoInputs.cache
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.AssemblyInfo.cs
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.csproj.CoreCompileInputs.cache
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.dll
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.pdb
+C:\Users\alumno\Desktop\PSEP\proyectos\Proyecto_PSEP\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.genruntimeconfig.cache

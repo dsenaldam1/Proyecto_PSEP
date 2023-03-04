@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fermin\\Documents\\GitHub\\Proyecto_PSEP\\Proyecto_PSEP.csproj": {}
+    "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Proyecto_PSEP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fermin\\Documents\\GitHub\\Proyecto_PSEP\\Proyecto_PSEP.csproj": {
+    "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Proyecto_PSEP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fermin\\Documents\\GitHub\\Proyecto_PSEP\\Proyecto_PSEP.csproj",
+        "projectUniqueName": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Proyecto_PSEP.csproj",
         "projectName": "Proyecto_PSEP",
-        "projectPath": "C:\\Users\\fermin\\Documents\\GitHub\\Proyecto_PSEP\\Proyecto_PSEP.csproj",
-        "packagesPath": "C:\\Users\\fermin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fermin\\Documents\\GitHub\\Proyecto_PSEP\\obj\\",
+        "projectPath": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Proyecto_PSEP.csproj",
+        "packagesPath": "C:\\Users\\alumno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\fermin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -50,30 +54,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.14, 6.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
