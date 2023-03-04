@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "vLabAXdYeCeDA67FD9V3IKHsCMhzrFprnMXSjCwr84yT5LXa4TOfX6sucAU0qwiOvF/KmJAYgzUeST06r2edMQ==",
+  "dgSpecHash": "MsTub4EmsM71UgHJiQbMJI55RKlNi3++H7yXOU1NR9gOOhUOYuqB1Fsb3vCX5h7V3TauTk2oYGhL9n+vbRubvw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Proyecto_PSEP.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\fermin\\Documents\\GitHub\\Proyecto_PSEP\\Proyecto_PSEP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\fermin\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\fermin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\fermin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\fermin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.14\\microsoft.netcore.app.host.win-x64.6.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

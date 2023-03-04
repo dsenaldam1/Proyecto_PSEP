@@ -4,11 +4,16 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace clientesincrono {
     public class SynchronousSocketClient {
 
         public static void StartClient() {
+
+            RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider(2048); //creamos el RSA en el cliente
+            RSAParameters clavePublica = RSAalg.ExportParameters(false); //Sacamos la clave publica para enviarsela al servidor
+
             // Data buffer for incoming data.  
             byte[] bytes = new byte[1024];
             
@@ -35,11 +40,8 @@ namespace clientesincrono {
                    
 
                     
-                    Console.WriteLine("Introduzca un 0,1 o 2");
-                     byte[] msg = Encoding.ASCII.GetBytes(Console.ReadLine());
-
                     // Send the data through the socket.  
-                    int bytesSent = sender.Send(msg);
+                    int bytesSent = sender.Send(clavePublica); // Enviamos la clave publica al servidor
 
                     // Receive the response from the remote device.  
                     int bytesRec = sender.Receive(bytes);

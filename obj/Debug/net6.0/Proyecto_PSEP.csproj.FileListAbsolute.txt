@@ -1,0 +1,5 @@
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\obj\Debug\net6.0\Proyecto_PSEP.csproj.AssemblyReference.cache
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\obj\Debug\net6.0\Proyecto_PSEP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\obj\Debug\net6.0\Proyecto_PSEP.AssemblyInfoInputs.cache
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\obj\Debug\net6.0\Proyecto_PSEP.AssemblyInfo.cs
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\obj\Debug\net6.0\Proyecto_PSEP.csproj.CoreCompileInputs.cache

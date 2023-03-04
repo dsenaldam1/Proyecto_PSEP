@@ -1,0 +1,14 @@
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.exe
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.deps.json
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.runtimeconfig.json
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.runtimeconfig.dev.json
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.dll
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\bin\Debug\netcoreapp3.1\Cliente.pdb
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.csproj.AssemblyReference.cache
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.AssemblyInfoInputs.cache
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.AssemblyInfo.cs
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.csproj.CoreCompileInputs.cache
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.dll
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.pdb
+C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\Cliente\obj\Debug\netcoreapp3.1\Cliente.genruntimeconfig.cache

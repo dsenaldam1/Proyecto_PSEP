@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace servidorAsincrono
 {
@@ -15,16 +16,16 @@ namespace servidorAsincrono
     {
         public static Dictionary<string, string> archivos = new Dictionary<string, string>();
 
+        public static RSAParameters clavePublica; //Aqui guardaremos la clave publica del cliente
+
         public static int TAM = 1024;
-        public static int ceros;
-        public static int unos;
-        public static int doses;
 
         // Incoming data from the client.  
         public static string data;
 
         public static async Task StartListening()
         {
+            //Crear archivos en el servidor
             for (int i = 1; i <= 10; i++)
             {
                 string archivo = "archivo" + i + ".txt";
@@ -32,6 +33,7 @@ namespace servidorAsincrono
                 File.WriteAllText(archivo, contenidoArc);
                 archivos.Add(archivo,contenidoArc);
             }
+            
             // Data buffer for incoming data.  
             byte[] bytes = new Byte[TAM];
 
@@ -70,25 +72,8 @@ namespace servidorAsincrono
                        // data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
                     }
 
-                    // Show the data on the console.   
-                    if(data == 0.ToString() || data == 1.ToString() || data == 2.ToString()) {
-                    
-                        Console.WriteLine(getLocalIpAddress() + " sent: {0}", data);
-                        if (data == 0.ToString()) {
-                                ceros++;
-                        }
-                        if (data == 1.ToString()) {
-                                unos++;
-                        }
-                        if (data == 2.ToString()) {
-                                doses++;
-                        }
-                        Console.WriteLine("[0]:" + ceros +  "[1]:" + unos + "[2]:" + doses);
-                    }
-                    else {
-                        Console.WriteLine(getLocalIpAddress() + " sent: {0}", data);
-                        Console.WriteLine("Valor no valido. FIN.");
-                    }
+                    Console.WriteLine(data); // De momento solo mostrar la clave para asegurar que esta llegando bien.
+                   
                     // Echo the data back to the client.  
                     byte[] msg = Encoding.ASCII.GetBytes(data.ToString());
 
