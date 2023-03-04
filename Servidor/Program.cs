@@ -63,20 +63,21 @@ namespace servidorAsincrono
                     // Program is suspended while waiting for an incoming connection.  
                     Socket handler = await listener.AcceptAsync();
                      data = null;
-                    int bytesRec = handler.Receive(bytes);
+                    int bytesRec = await handler.ReceiveAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
                     data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
                     // An incoming connection needs to be processed.  
                     while (bytesRec == TAM)
                     {
                         bytesRec = await handler.ReceiveAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
-                       // data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                        data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
                     }
-
+                    Console.WriteLine("Json:");
                     Console.WriteLine(data); // De momento solo mostrar la clave para asegurar que esta llegando bien.
-                   
+                  
                     // Echo the data back to the client.  
+                    
                     byte[] msg = Encoding.ASCII.GetBytes(data.ToString());
-
+                    Console.WriteLine(msg);
                     await handler.SendAsync(new ArraySegment<byte>(msg), SocketFlags.None);
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();

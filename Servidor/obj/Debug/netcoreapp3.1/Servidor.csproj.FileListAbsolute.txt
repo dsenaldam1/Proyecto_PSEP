@@ -26,3 +26,17 @@ C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\servidor\obj\Debug\netcoreapp3.1\
 C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\servidor\obj\Debug\netcoreapp3.1\Servidor.dll
 C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\servidor\obj\Debug\netcoreapp3.1\Servidor.pdb
 C:\Users\fermin\Documents\GitHub\Proyecto_PSEP\servidor\obj\Debug\netcoreapp3.1\Servidor.genruntimeconfig.cache
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\bin\Debug\netcoreapp3.1\Servidor.exe
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\bin\Debug\netcoreapp3.1\Servidor.deps.json
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\bin\Debug\netcoreapp3.1\Servidor.runtimeconfig.json
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\bin\Debug\netcoreapp3.1\Servidor.runtimeconfig.dev.json
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\bin\Debug\netcoreapp3.1\Servidor.dll
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\bin\Debug\netcoreapp3.1\Servidor.pdb
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.csproj.AssemblyReference.cache
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.AssemblyInfoInputs.cache
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.AssemblyInfo.cs
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.csproj.CoreCompileInputs.cache
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.dll
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.pdb
+C:\Colegio\PSP\trabajo psp2\Proyecto_PSEP\Servidor\obj\Debug\netcoreapp3.1\Servidor.genruntimeconfig.cache
