@@ -1,12 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace servidorsincrono
+namespace servidorAsincrono
 {
-    public class SynchronousSocketListener
+    public class AsynchronousSocketListener
     {
 
         public static int TAM = 1024;
@@ -17,7 +19,7 @@ namespace servidorsincrono
         // Incoming data from the client.  
         public static string data;
 
-        public static void StartListening()
+        public static async Task StartListening()
         {
             // Data buffer for incoming data.  
             byte[] bytes = new Byte[TAM];
@@ -46,14 +48,14 @@ namespace servidorsincrono
                 {
                     Console.WriteLine("Waiting for a connection...");
                     // Program is suspended while waiting for an incoming connection.  
-                    Socket handler = listener.Accept();
+                    Socket handler = await listener.AcceptAsync();
                      data = null;
                     int bytesRec = handler.Receive(bytes);
                     data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
                     // An incoming connection needs to be processed.  
                     while (bytesRec == TAM)
                     {
-                        bytesRec = handler.Receive(bytes);
+                        bytesRec = await handler.ReceiveAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
                        // data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
                     }
 
@@ -79,7 +81,7 @@ namespace servidorsincrono
                     // Echo the data back to the client.  
                     byte[] msg = Encoding.ASCII.GetBytes(data.ToString());
 
-                    handler.Send(msg);
+                    await handler.SendAsync(new ArraySegment<byte>(msg), SocketFlags.None);
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
                 }
@@ -124,10 +126,9 @@ namespace servidorsincrono
             return ipAddress;
         }
 
-        public static int Main(String[] args)
+        public static async Task Main(String[] args)
         {
-            StartListening();
-            return 0;
+            await StartListening();
         }
     }
 }
