@@ -35,15 +35,17 @@ namespace clientesincrono {
                 try {
                     sender.Connect(remoteEP);
                     
-                    // Send the data through the socket.  
+                    // Send the data through the socket. 
+                    //Se indica que seleccione un archivo y este se junta en una cadena con la clave y se envía al servidor 
                     Console.WriteLine("Selecciona un archivo entre el 1 y el 10:");
                     string num = (Console.ReadLine());
                     string cadena = (num + ":" + publicKey);
                     byte[] envio = Encoding.ASCII.GetBytes(cadena);
 
-                    sender.SendAsync(new ArraySegment<byte>(envio), SocketFlags.None); // Enviamos la clave publica al servidor
+                    sender.SendAsync(new ArraySegment<byte>(envio), SocketFlags.None); 
                     
                     Thread.Sleep(4000); //Espera para dar tiempo a la llamada
+                    //Se recoge y desencripta el mensaje enviado por el servidor
                     recibirDatos(sender, bytes);
                     Console.WriteLine(Encoding.UTF8.GetString(RSAalg.Decrypt(Encoding.UTF8.GetBytes(encriptado), false)));
 
