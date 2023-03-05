@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Threading;
+using System.Text.Json;
 
 namespace servidorAsincrono
 {
@@ -24,6 +25,9 @@ namespace servidorAsincrono
 
         // Incoming data from the client.  
         public static string data;
+              class json{
+            public string[]? Contenido { get; set; }
+        }
 
         public static async Task StartListening()
         {
@@ -75,7 +79,18 @@ namespace servidorAsincrono
                     Console.WriteLine(data);
                     RSA.FromXmlString(data);
 
-                    byte[] cifrado = RSA.Encrypt(File.ReadAllBytes("archivo1.txt"), false);
+                    Console.WriteLine("Json:");
+                    string[] cadena =  data.Split(":");
+                    string name = "archivo" + cadena[0] + ".txt";
+                    string[] allLines = File.ReadAllLines(name);
+                    var JJ = new json{
+                        
+                        Contenido = allLines
+                    };
+                    string jsonString = JsonSerializer.Serialize(JJ);
+
+                    byte[] json = Encoding.ASCII.GetBytes(jsonString);
+                    byte[] cifrado = RSA.Encrypt(json, false);
             
                     Thread.Sleep(4000);
 
