@@ -34,7 +34,10 @@ namespace servidorAsincrono
             for (int i = 1; i <= 10; i++)
             {
                 
-              
+                string archivo = "archivo" + i + ".txt";
+                string contenidoArc = "Archivo" + i;
+                File.WriteAllText(archivo, contenidoArc);
+                archivos.Add(archivo,contenidoArc);
                
             }
             // Data buffer for incoming data.  
