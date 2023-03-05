@@ -25,7 +25,8 @@ namespace servidorAsincrono
 
         // Incoming data from the client.  
         public static string data;
-              class json{
+        //Clase que luego nos servirá de ayuda para la seriallización
+        class json{
             public string[]? Contenido { get; set; }
         }
 
@@ -80,15 +81,17 @@ namespace servidorAsincrono
                     RSA.FromXmlString(data);
 
                     Console.WriteLine("Json:");
+                    //Se separa el número de archivo de la clave pública
                     string[] cadena =  data.Split(":");
                     string name = "archivo" + cadena[0] + ".txt";
+                    //Se cargan los datos del archivo que ha seleccionado el usuario para serializarlos posteriormente
                     string[] allLines = File.ReadAllLines(name);
                     var JJ = new json{
                         
                         Contenido = allLines
                     };
                     string jsonString = JsonSerializer.Serialize(JJ);
-
+                    //Se devuelve el contenido serializado y encriptado
                     byte[] json = Encoding.ASCII.GetBytes(jsonString);
                     byte[] cifrado = RSA.Encrypt(json, false);
             
