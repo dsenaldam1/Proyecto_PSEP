@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text.Json;
 
 namespace servidorAsincrono
 {
@@ -16,25 +17,26 @@ namespace servidorAsincrono
     {
         public static Dictionary<string, string> archivos = new Dictionary<string, string>();
 
-        public static RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
         public static RSAParameters clavePublica; //Aqui guardaremos la clave publica del cliente
+        public static RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
 
-        public static int TAM = 2048;
+        public static int TAM = 1024;
 
         // Incoming data from the client.  
         public static string data;
+        class json{
+            public string[]? Contenido { get; set; }
+        }
 
         public static async Task StartListening()
         {
             //Crear archivos en el servidor
             for (int i = 1; i <= 10; i++)
             {
-                string archivo = "archivo" + i + ".txt";
-                string contenidoArc = "Archivo" + i;
-                File.WriteAllText(archivo, contenidoArc);
-                archivos.Add(archivo,contenidoArc);
+                
+              
+               
             }
-            
             // Data buffer for incoming data.  
             byte[] bytes = new Byte[TAM];
 
@@ -65,27 +67,33 @@ namespace servidorAsincrono
                     Socket handler = await listener.AcceptAsync();
                      data = null;
                     int bytesRec = await handler.ReceiveAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
-                    data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
+                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    // An incoming connection needs to be processed.  
                     while (bytesRec == TAM)
                     {
                         bytesRec = await handler.ReceiveAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
-                        data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
+                        data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
                     }
 
-                    RSA.FromXmlString(data);
+                    Console.WriteLine("Json:");
+                    string name = "archivo" + data + ".txt";
+                    string[] allLines = File.ReadAllLines(name);
+                    var JJ = new json{
+                        
+                        Contenido = allLines
+                    };
+                    string jsonString = JsonSerializer.Serialize(JJ);
 
-                    Console.WriteLine("cifrado:");
-                    byte[] cifrado = RSA.Encrypt(File.ReadAllBytes("archivo1.txt"), false);
-                    //Console.WriteLine(Encoding.UTF8.GetString(RSA.Encrypt(File.ReadAllBytes("archivo1.txt"), false), 0, cifrado.Length)); // De momento solo mostrar la clave para asegurar que esta llegando bien.
-                    
-                    //Console.WriteLine(Encoding.UTF8.GetString(RSA.Decrypt(cifrado, false), 0, cifrado.Length));
-
-                    /*Console.WriteLine("Json:");
-                    Console.WriteLine(data); // De momento solo mostrar la clave para asegurar que esta llegando bien.*/
+                     byte[] json = Encoding.ASCII.GetBytes(jsonString);
+                    //RSA.FromXmlString(data);
+                    byte[] cifrado = RSA.Encrypt(json, false);
+                    Console.WriteLine(Encoding.ASCII.GetString(cifrado, 0, cifrado.Length));
+                   // Console.WriteLine(jsonString);
+                   // Console.WriteLine(data); // De momento solo mostrar la clave para asegurar que esta llegando bien.
                   
                     // Echo the data back to the client.  
                     
-                    //byte[] msg = Encoding.ASCII.GetBytes(data.ToString());
+                    // byte[] msg = Encoding.ASCII.GetBytes(cifrado.ToString());
                     //Console.WriteLine(msg);
                     await handler.SendAsync(new ArraySegment<byte>(cifrado), SocketFlags.None);
                     handler.Shutdown(SocketShutdown.Both);
@@ -102,37 +110,6 @@ namespace servidorAsincrono
             Console.Read();
 
         }
-
-
-        /*public static byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAKeyInfo)
-        {
-            try
-            {
-                byte[] encryptedData;
-                //Create a new instance of RSACryptoServiceProvider.
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
-                {
-
-                    //Import the RSA Key information. This only needs
-                    //toinclude the public key information.
-                    RSA.ImportParameters(RSAKeyInfo);
-
-                    //Encrypt the passed byte array and specify OAEP padding.  
-                    //OAEP padding is only available on Microsoft Windows XP or
-                    //later.  
-                    encryptedData = RSA.Encrypt(DataToEncrypt, false);
-                }
-                return encryptedData;
-            }
-            //Catch and display a CryptographicException  
-            //to the console.
-            catch (CryptographicException e)
-            {
-                Console.WriteLine(e.Message);
-
-                return null;
-            }
-        }*/
 
         static IPAddress getLocalIpAddress()
         {
