@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/ZRatiakxbzyDuyMEBY/pTlRdEXXtjFYRNLpC6VXJhIWd7B0dp0TMgNkZyus0z4aOkrO7fcQ4Yfq+Mvp+foJSg==",
+  "dgSpecHash": "mFJLqk5u4StRDlSE79jeqqeAoImj8x2ztYwIBRZS7xywc3tJD5HSWerkVeMXcWCVljF1Jua1ppEbvGdq9trp1A==",
   "success": true,
-  "projectFilePath": "C:\\Colegio\\PSP\\Trabajo4\\Proyecto_PSEP\\Cliente\\Cliente.csproj",
+  "projectFilePath": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Cliente\\Cliente.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alumno\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.29\\microsoft.netcore.app.host.win-x64.3.1.29.nupkg.sha512"
   ],
