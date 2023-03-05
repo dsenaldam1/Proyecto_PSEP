@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Cliente\\Cliente.csproj",
+      "projectUniqueName": "C:\\Colegio\\PSP\\Trabajo4\\Proyecto_PSEP\\Cliente\\Cliente.csproj",
       "projectName": "Cliente",
-      "projectPath": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Cliente\\Cliente.csproj",
+      "projectPath": "C:\\Colegio\\PSP\\Trabajo4\\Proyecto_PSEP\\Cliente\\Cliente.csproj",
       "packagesPath": "C:\\Users\\alumno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alumno\\Desktop\\PSEP\\proyectos\\Proyecto_PSEP\\Proyecto_PSEP\\Cliente\\obj\\",
+      "outputPath": "C:\\Colegio\\PSP\\Trabajo4\\Proyecto_PSEP\\Cliente\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

@@ -60,10 +60,16 @@ namespace clientesincrono {
 
                     
                     // Send the data through the socket.  
-                    int bytesSent = sender.Send(publicKeyBytes); // Enviamos la clave publica al servidor
+                   // int bytesSent = sender.Send(publicKeyBytes); // Enviamos la clave publica al servidor
+                    Console.WriteLine("Numero:");
+                    byte[] msg = Encoding.ASCII.GetBytes(Console.ReadLine());
+                    int bytesSent = sender.Send(msg);
 
-                    byte[] desencriptado = RSAalg.Decrypt(Encoding.UTF8.GetBytes(sender.RemoteEndPoint.ToString()), false);
-                    Console.WriteLine("Socket connected to {0}", Encoding.UTF8.GetString(desencriptado, 0, 2048));
+                    int bytesRec = sender.Receive(bytes); 
+                    Console.WriteLine("Echoed test = {0}", Encoding.ASCII.GetString(bytes, 0, bytesRec));
+
+                   // byte[] desencriptado = RSAalg.Decrypt(Encoding.UTF8.GetBytes(sender.RemoteEndPoint.ToString()), false);
+                   // Console.WriteLine("Socket connected to {0}", Encoding.UTF8.GetString(desencriptado, 0, 2048));
 
                     // Receive the response from the remote device.  
                     //int bytesRec = sender.Receive(bytes);
