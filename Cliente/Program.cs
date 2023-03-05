@@ -34,50 +34,13 @@ namespace clientesincrono {
                 // Connect the socket to the remote endpoint. Catch any errors.  
                 try {
                     sender.Connect(remoteEP);
-                    //byte[] desencriptado = RSAalg.Decrypt(Encoding.UTF8.GetBytes(sender.RemoteEndPoint.ToString()), false);
-                    //Console.WriteLine("Socket connected to {0}", Encoding.UTF8.GetString(desencriptado, 0, 2048));
-                    
-
-                    // Encode the data string into a byte array. 
-                   
-
                     
                     // Send the data through the socket.  
-<<<<<<< Updated upstream
-                   // int bytesSent = sender.Send(publicKeyBytes); // Enviamos la clave publica al servidor
-                    Console.WriteLine("Numero:");
-                    byte[] msg = Encoding.ASCII.GetBytes(Console.ReadLine());
-                    int bytesSent = sender.Send(msg);
-
-=======
-<<<<<<< HEAD
                     sender.SendAsync(new ArraySegment<byte>(publicKeyBytes), SocketFlags.None); // Enviamos la clave publica al servidor
                     Console.WriteLine(publicKey);
                     Thread.Sleep(4000); //Espera para dar tiempo a la llamada
-                    //byte[] desencriptado = RSAalg.Decrypt(Encoding.UTF8.GetBytes(sender.RemoteEndPoint.ToString()), false);
                     recibirDatos(sender, bytes);
                     Console.WriteLine(Encoding.UTF8.GetString(RSAalg.Decrypt(Encoding.UTF8.GetBytes(encriptado), false)));
-
-=======
-                   // int bytesSent = sender.Send(publicKeyBytes); // Enviamos la clave publica al servidor
-                    Console.WriteLine("Numero:");
-                    byte[] msg = Encoding.ASCII.GetBytes(Console.ReadLine());
-                    int bytesSent = sender.Send(msg);
-
->>>>>>> Stashed changes
-                    int bytesRec = sender.Receive(bytes); 
-                    Console.WriteLine("Echoed test = {0}", Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
-                   // byte[] desencriptado = RSAalg.Decrypt(Encoding.UTF8.GetBytes(sender.RemoteEndPoint.ToString()), false);
-                   // Console.WriteLine("Socket connected to {0}", Encoding.UTF8.GetString(desencriptado, 0, 2048));
-<<<<<<< Updated upstream
-=======
->>>>>>> d3e4754a422c6456daf8734fb0c405b3e59af8c5
->>>>>>> Stashed changes
-
-                    // Receive the response from the remote device.  
-                    //int bytesRec = sender.Receive(bytes);
-                    //Console.WriteLine("Echoed test = {0}", Encoding.ASCII.GetString(bytes, 0, bytesRec));
 
                     // Release the socket.  
                     sender.Shutdown(SocketShutdown.Both);
