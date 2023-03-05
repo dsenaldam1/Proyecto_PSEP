@@ -14,19 +14,26 @@ namespace clientesincrono {
 
         public static void StartClient() {
 
-            RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider(2048); //creamos el RSA en el cliente
-            RSAParameters clavePublica = RSAalg.ExportParameters(false); //Sacamos la clave publica para enviarsela al servidor
-            byte[] rsabytes;
-            using (MemoryStream ms = new MemoryStream())
+            RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider(1024); //creamos el RSA en el cliente
+            string publicKey = RSAalg.ToXmlString(false); // Obtiene la clave pública en formato XML
+            byte[] publicKeyBytes = Encoding.UTF8.GetBytes(publicKey); // Codifica la clave pública en UTF-8
+
+
+
+            //Dejo esto comentado.
+            /*using (MemoryStream ms = new MemoryStream())
                 {
                     DataContractSerializer serializer = new DataContractSerializer(typeof(RSAParameters));
                     serializer.WriteObject(ms, clavePublica);
                     rsabytes= ms.ToArray();
                     
                     // ahora puedes enviar los bytes a través del socket
-                }
+                }*/
+
+
+
             // Data buffer for incoming data.  
-            byte[] bytes = new byte[4096];
+            byte[] bytes = new byte[2048];
             
             // Connect to a remote device.  
             try {
@@ -44,19 +51,23 @@ namespace clientesincrono {
                 // Connect the socket to the remote endpoint. Catch any errors.  
                 try {
                     sender.Connect(remoteEP);
-
-                    Console.WriteLine("Socket connected to {0}", sender.RemoteEndPoint.ToString());
+                    //byte[] desencriptado = RSAalg.Decrypt(Encoding.UTF8.GetBytes(sender.RemoteEndPoint.ToString()), false);
+                    //Console.WriteLine("Socket connected to {0}", Encoding.UTF8.GetString(desencriptado, 0, 2048));
+                    
 
                     // Encode the data string into a byte array. 
                    
 
                     
                     // Send the data through the socket.  
-                    int bytesSent = sender.Send(rsabytes); // Enviamos la clave publica al servidor
+                    int bytesSent = sender.Send(publicKeyBytes); // Enviamos la clave publica al servidor
+
+                    byte[] desencriptado = RSAalg.Decrypt(Encoding.UTF8.GetBytes(sender.RemoteEndPoint.ToString()), false);
+                    Console.WriteLine("Socket connected to {0}", Encoding.UTF8.GetString(desencriptado, 0, 2048));
 
                     // Receive the response from the remote device.  
-                    int bytesRec = sender.Receive(bytes);
-                    Console.WriteLine("Echoed test = {0}", Encoding.ASCII.GetString(bytes, 0, bytesRec));
+                    //int bytesRec = sender.Receive(bytes);
+                    //Console.WriteLine("Echoed test = {0}", Encoding.ASCII.GetString(bytes, 0, bytesRec));
 
                     // Release the socket.  
                     sender.Shutdown(SocketShutdown.Both);

@@ -16,9 +16,10 @@ namespace servidorAsincrono
     {
         public static Dictionary<string, string> archivos = new Dictionary<string, string>();
 
+        public static RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
         public static RSAParameters clavePublica; //Aqui guardaremos la clave publica del cliente
 
-        public static int TAM = 1024;
+        public static int TAM = 2048;
 
         // Incoming data from the client.  
         public static string data;
@@ -64,21 +65,29 @@ namespace servidorAsincrono
                     Socket handler = await listener.AcceptAsync();
                      data = null;
                     int bytesRec = await handler.ReceiveAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
-                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                    // An incoming connection needs to be processed.  
+                    data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
                     while (bytesRec == TAM)
                     {
                         bytesRec = await handler.ReceiveAsync(new ArraySegment<byte>(bytes), SocketFlags.None);
-                        data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                        data += Encoding.UTF8.GetString(bytes, 0, bytesRec);
                     }
-                    Console.WriteLine("Json:");
-                    Console.WriteLine(data); // De momento solo mostrar la clave para asegurar que esta llegando bien.
+
+                    RSA.FromXmlString(data);
+
+                    Console.WriteLine("cifrado:");
+                    byte[] cifrado = RSA.Encrypt(File.ReadAllBytes("archivo1.txt"), false);
+                    //Console.WriteLine(Encoding.UTF8.GetString(RSA.Encrypt(File.ReadAllBytes("archivo1.txt"), false), 0, cifrado.Length)); // De momento solo mostrar la clave para asegurar que esta llegando bien.
+                    
+                    //Console.WriteLine(Encoding.UTF8.GetString(RSA.Decrypt(cifrado, false), 0, cifrado.Length));
+
+                    /*Console.WriteLine("Json:");
+                    Console.WriteLine(data); // De momento solo mostrar la clave para asegurar que esta llegando bien.*/
                   
                     // Echo the data back to the client.  
                     
-                    byte[] msg = Encoding.ASCII.GetBytes(data.ToString());
-                    Console.WriteLine(msg);
-                    await handler.SendAsync(new ArraySegment<byte>(msg), SocketFlags.None);
+                    //byte[] msg = Encoding.ASCII.GetBytes(data.ToString());
+                    //Console.WriteLine(msg);
+                    await handler.SendAsync(new ArraySegment<byte>(cifrado), SocketFlags.None);
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
                 }
@@ -93,6 +102,37 @@ namespace servidorAsincrono
             Console.Read();
 
         }
+
+
+        /*public static byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAKeyInfo)
+        {
+            try
+            {
+                byte[] encryptedData;
+                //Create a new instance of RSACryptoServiceProvider.
+                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                {
+
+                    //Import the RSA Key information. This only needs
+                    //toinclude the public key information.
+                    RSA.ImportParameters(RSAKeyInfo);
+
+                    //Encrypt the passed byte array and specify OAEP padding.  
+                    //OAEP padding is only available on Microsoft Windows XP or
+                    //later.  
+                    encryptedData = RSA.Encrypt(DataToEncrypt, false);
+                }
+                return encryptedData;
+            }
+            //Catch and display a CryptographicException  
+            //to the console.
+            catch (CryptographicException e)
+            {
+                Console.WriteLine(e.Message);
+
+                return null;
+            }
+        }*/
 
         static IPAddress getLocalIpAddress()
         {
